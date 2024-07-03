@@ -13,16 +13,22 @@
 * Reinforcement learning basics (including a cart-pole code example on Google Colab)
 * Humanoid robot simulation project using reinforcement learning
 
-# Tentative Syllabus
+# GEARS Program Schedule
+
+![GEARS Schedule 1](./resources/GEARS_Schedule_1.png) 
+
+![GEARS Schedule 2](./resources/GEARS_Schedule_2.png)
+
+# Tentative Syllabus for Individual Project & Training
 
 | Week | Lecture | Content | Homework Assignment | 
 | :---: | :---: | --- | --- |
-| 1 | 1 | Program overview | See [Paper List](#paper-list) |
-| 1 | 2 | Install software environment (Ubuntu, MuJoCo, IsaacGym) |  |
-| 2 | 3 | Reinforcement learning basics<br>Cart-pole example | See [Homework 1 Cart-Pole Example](#homework-1-cart-pole-example) | 
-| 2 | 4 | Define custom URDF file for robots and visualize in MuJuCo |  |
-| 3 | 5 | Introduction to humanoid robots<br>Reward function formulation | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
-| 3 | 6 | Tune reward function and train humanoid robot controller | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
+| 1 | 1 | Program overview (07/11) | See [Paper List](#paper-list) |
+| 1 | 2 | Install software environment (Ubuntu, MuJoCo, IsaacGym) (07/12) |  |
+| 2 | 3 | Reinforcement learning basics<br>Cart-pole example (Date TBD) | See [Homework 1 Cart-Pole Example](#homework-1-cart-pole-example) | 
+| 2 | 4 | Define custom URDF file for robots and visualize in MuJuCo (Date TBD) |  |
+| 3 | 5 | Introduction to humanoid robots<br>Reward function formulation (Date TBD) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
+| 3 | 6 | Tune reward function and train humanoid robot controller (Date TBD) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
 | 4 | 7 | Poster feedback | Poster must be completed by July 25 |
 
 
