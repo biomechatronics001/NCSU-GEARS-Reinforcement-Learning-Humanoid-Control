@@ -4,9 +4,11 @@
 
 **Instructor**: Professor Hao Su, Ivan Sanchez (postdoc), Junxi Zhu (PhD student)
 
-**Location**: Engineering Building III (for in-person students only)
+**Location**: Room TBD, Engineering Building III (for in-person students only)
 
 **Time**: TBD
+
+**Zoom link**: https://ncsu.zoom.us/my/junxizhu
 
 **Topics**:
 
@@ -23,8 +25,8 @@
 
 | Week | Lecture | Content | Homework Assignment | 
 | :---: | :---: | --- | --- |
-| 1 | 1 | Program overview (07/11) | See [Paper List](#paper-list) |
-| 1 | 2 | Install software environment (Ubuntu, MuJoCo, IsaacGym) (07/12) |  |
+| 1 | 1 | Program overview (07/11, 10a - 11:30a, New York time) | See [Paper List](#paper-list) |
+| 1 | 2 | Install software environment (Ubuntu, MuJoCo, IsaacGym) (07/12, 10a - 11:30a, New York time) |  |
 | 2 | 3 | Reinforcement learning basics<br>Cart-pole example (Date TBD) | See [Homework 1 Cart-Pole Example](#homework-1-cart-pole-example) | 
 | 2 | 4 | Define custom URDF file for robots and visualize in MuJuCo (Date TBD) |  |
 | 3 | 5 | Introduction to humanoid robots<br>Reward function formulation (Date TBD) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
@@ -34,7 +36,7 @@
 
 # Hardware and Software Requirement
 
-It is strongly recommended that you have a computer with **Linux 18.04** operating system and a **Nvidia GPU** that supports CUDA with more than 8 GB of VRAM. They are necessary for the reinforcement learning project.
+It is strongly recommended that you have a computer with **Linux 18.04** operating system and a **Nvidia GPU** that supports CUDA with **more than 8 GB of VRAM**. They are necessary for the reinforcement learning project.
 
 For in-person students, if you are not able to meet this requirement, you may use the computer we provide in the lab. Two students form a group and share one computer. A total of four computers are available in the lab.
 
@@ -48,10 +50,17 @@ For remote students, you may use the Virtual Computing Lab (VCL) facilities prov
 * **[ETH Hutter 2022 ICRA]** [Legged Robots on the way from subterranean](https://www.youtube.com/watch?v=XwheB2_dyMQ)
 * **[Our 2024 Nature]** S. Luo, M. Jiang, S. Zhang, J. Zhu, S. Yu, I. Dominguez Silva, T. Wang, E. Rouse, B. Zhou, H. Yuk, X. Zhou, and H. Su, “Experiment-free exoskeleton assistance via learning in simulation,” Nature, vol. 630, no. 8016, pp. 353–359, Jun. 2024.
 * **[Davide23 Nature]** E. Kaufmann, L. Bauersfeld, A. Loquercio, M. Müller, V. Koltun, and D. Scaramuzza, “Champion-level drone racing using deep reinforcement learning,” Nature, vol. 620, no. 7976, pp. 982–987, Aug. 2023. | [Seminar Talk](https://www.youtube.com/watch?v=tb1SCib0OTo)
+* **[IIya Deep Learning]** [Deep Learning Theory Session Ilya SutskeverIlya Sutskever](https://www.youtube.com/watch?v=OAm6zyR_c8k)
 
 <br>
 
 # Cart-Pole Example
+
+## Objective
+
+1. Understand the basic concepts in reinforcement learning: environment, agent, observation, action, reward, policy, etc.
+
+2. Investigate the influence of number of neurons, number of network hidden layers, training episodes on the performance of the trained policy.
 
 # Homework 1 Cart-Pole Example
 
@@ -59,24 +68,31 @@ Placeholder
 
 # Humanoid Project
 
-**Paper**: Jeon, S. H., Heim, S., Khazoom, C., & Kim, S. (2023, May). Benchmarking potential based rewards for learning humanoid locomotion. In 2023 IEEE International Conference on Robotics and Automation (ICRA) (pp. 9204-9210).
+## Objective
+
+1. Have a deeper understanding of the concepts in reinforcement learning through this more advanced example.
+2. Create a URDF file for a custom robot.
+3. Tune the reward function and understand the influence of different reward terms on the controller performance. 
+
+**Paper**: S. H. Jeon, S. Heim, C. Khazoom, and S. Kim, “Benchmarking Potential Based Rewards for Learning Humanoid Locomotion,” in 2023 IEEE International Conference on Robotics and Automation (ICRA), London, United Kingdom, May 2023, pp. 9204–9210.
+
 
 ## Installation
 
-* Create the virtual environment using Python 3.6.9 (``user`` is your machine username)
+* Create the virtual environment using Python 3.8 (``user`` is your machine username; you may also use Anaconda to create and manage the virtual environment)
   
   ```bash
-  virtualenv /home/user/MITlegged --python=python3
+  virtualenv /home/user/leggedrobot --python=python3
   ```
 
 * Activate the virtual environment
 
   ```bash
-  source /home/user/MITlegged/bin/activate
+  source /home/user/leggedrobot/bin/activate
   ```
 
    **Note**: You should see the name of the active virtual environment in parenthesis at the begining of the line.
-      Something like this ``(MITlegged)user@PCname:~$``.
+      Something like this ``(leggedrobot)user@PCname:~$``.
     
 
 * Install required libraries (pythorch 1.10 and cuda 11.3)
@@ -88,7 +104,7 @@ Placeholder
 * Install Isaac Gym
 
   1. Download Isaac Gym Preview 4 from https://developer.nvidia.com/isaac-gym
-  2. Extract the zip package in the MITlegged virtual environment folder.
+  2. Extract the zip package in the virtual environment folder.
   3. ``cd isaacgym_lib/python && pip install -e .`` to install the requirements.
   4. Test the installation by running an example: ``cd isaacgym/python/examples && python 1080_balls_of_solitude.py``.
   
@@ -115,9 +131,29 @@ Placeholder
 
   ``pip install wandb==0.15.11``
 
-## Usage
+## Setup Wandb for logging
 
-**Training the controller**: ``python gpugym/scripts/train.py --task=pbrs:humanoid``
+1. Create an account on https://wandb.ai/site.
+
+2. Copy your personal API key from the homepage.
+
+    ![WandbHomepage](./resources/Wandb_Homepage.png)
+
+3. Create a new project from the homepage.
+
+4. In the virtual environment, execute the following and enter your API key and prese Enter. Note that for security reasons, the key you entered/pasted will not be visible.
+
+    ```python
+    wandb login
+    ```
+
+## Train the control policy
+
+To start the training, exeute the following:
+
+```python
+python gpugym/scripts/train.py --task=pbrs:humanoid --experiment_name=<NAME> --run_name=<NAME> --wandb_project=<NAME> --wandb_entity=<NAME> --wandb_name=<NAME>
+```
   
 **Note**: You should see something like this
 ![HumanoidTraining](./resources/PBRS_MIT_Humanoid_Training.png)
@@ -135,8 +171,11 @@ Placeholder
   * ``--num_envs`` NUM_ENVS: Number of environments to create.
   * ``--seed`` SEED: Random seed.
   * ``--max_iterations`` MAX_ITERATIONS: Maximum number of training iterations.
+  * ``-wandb_project`` WANDB_PROJECT: Project name on Wandb.
+  * ``wandb_entity`` WANDB_ENTITY: This is your Wandb user name from the homepage.
+  * ``wandb_name`` WANDB_NAME: This is the display name of your run on Wandb.
 
-* Implement the trained policy
+## Run the trained policy
 
   ``python gpugym/scripts/play.py --task=pbrs:humanoid``
 
