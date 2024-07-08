@@ -168,7 +168,7 @@ python gpugym/scripts/train.py --task=pbrs:humanoid --experiment_name=<NAME> --r
   
 **Note**: You should see something like this
 ![HumanoidTraining](./resources/PBRS_MIT_Humanoid_Training.png)
-* To run on CPU add following arguments: --sim_device=cpu, --rl_device=cpu (sim on CPU and rl on GPU is possible).
+* To run on CPU add following arguments: ``--sim_device=cpu``, ``--rl_device=cpu`` (sim on CPU and rl on GPU is possible).
 * To run headless (no rendering) add ``--headless``.
 * Important: To improve training speed, once the training starts press the key *V* to stop the rendering. You can then enable it later by pressing the key *V* again to check the progress.
 * The trained policy is saved in gpugym/logs/[experiment_name]\/[date_time]\_[run_name]\/model_[iteration].pt, where [experiment_name] and [run_name] are defined in the train config.
