@@ -64,9 +64,14 @@ For remote students, you may use the Virtual Computing Lab (VCL) facilities prov
   * Agent
   * Satates
   * Observation
-  * Action, reward, policy, etc.
+  * Action
+  * Reward
+  * Policy
 
-2. Investigate the influence of number of neurons, number of network hidden layers, and training episodes on the performance of the trained policy.
+2. Compare the the performance of the trained policy regarding
+  * Number of neurons
+  * Number of network hidden layers
+  * Training episodes
 
 ## Introduction
 
@@ -107,12 +112,16 @@ OpenAI Gym is a toolkit developed by OpenAI for developing and comparing reinfor
 
 OpenAI's Gym environment "CartPole" is a classic control problem in reinforcement learning (RL). The primary objective is to balance a pole on a cart by applying forces to the cart to keep the pole upright. Here's a detailed description of the CartPole environment:
 
-Environment Setup
+**Goal**
+
+Keep the pole balanced upward and the cart within the track boundaries for as long as possible.
+
+**Environment**
 
 1. Cart and Pole Dynamics:
 
   * Cart: A small cart that can move left or right along a frictionless track.
-  * Pole: A pole attached to the cart by an unactuated joint. The pole starts upright and can fall to either side.
+  * Pole: A pole attached to the cart by an unactuated rotational joint. The pole starts upright and can fall to either side.
 
 2. State Space:
 
@@ -124,30 +133,139 @@ Environment Setup
 
 3. Action Space:
 
-* The action space is discrete with two possible actions:
-    * 0: Apply a force to the cart to move it to the left.
-    * 1: Apply a force to the cart to move it to the right.
+  * The action space is discrete with two possible actions:
+      * 0: Apply a force to the cart to move it to the left.
+      * 1: Apply a force to the cart to move it to the right.
 
-Objective
-The primary goal is to keep the pole balanced and the cart within the track boundaries for as long as possible. The episode terminates if:
+4. Reward:
 
-The pole angle exceeds ±12 degrees from the vertical.
-The cart position exceeds ±2.4 units from the center.
-The episode length reaches a maximum of 200 time steps (configurable in some versions).
-Reward
-The reward structure is simple:
+  * The agent receives a reward of +1 for every time step the pole remains upright and within the allowed boundaries.
 
-The agent receives a reward of +1 for every time step the pole remains upright and within the allowed boundaries.
-Termination Conditions
-The episode ends when:
+5. Termination Conditions (episode):
 
-The pole falls beyond the allowed angle.
-The cart moves out of the allowed position range.
-The maximum number of time steps is reached.
+  * The pole angle exceeds ±12 degrees from the vertical.
+  * The cart position exceeds ±2.4 units from the center.
+  * The episode length reaches a maximum of 200 time steps (configurable in some versions).
 
 ## Set up
 
-On this regard, the first step is to create a new Google Colab Notebook
+1. Create a new Google Colab Notebook
+
+2. Install the following libraries (create a new code block for each step)
+  ```bash
+    !pip install tensorflow==2.11.0
+    !pip install keras==2.11.0
+    !pip install keras-rl2
+    !pip install gym[classic_control]==0.18.3
+  ```
+
+3. Import the libraries
+  ```bash
+    import os
+    os.environ["SDL_VIDEODRIVER"] = "dummy"
+    import numpy as np
+    import tensorflow as tf
+    from tensorflow.keras.models import Sequential
+    from tensorflow.keras.layers import Dense, Flatten
+    from tensorflow.keras.optimizers import Adam
+    import gym
+    import random
+    from rl.agents import DQNAgent
+    from rl.policy import BoltzmannQPolicy
+    from rl.memory import SequentialMemory
+    import matplotlib.pyplot as plt
+  ```
+
+4. Create the environment
+  ```bash
+    env = gym.make('CartPole-v1')
+    states = env.observation_space.shape[0]
+    actions = env.action_space.n
+    observations = env.reset()
+  ```
+  **NOTE:** try ``[actions, states, observations]`` after the previous block. You will see the amount of states, actions, and the value of the observations. Notice that the size of the first element of ``observations`` corresponds to the value of ``states``.
+
+5. Run the simulation
+  ```bash
+    scoress = []
+    episodes = 30
+    for episode in range(1, episodes+1):
+        state = env.reset()
+        done = False
+        score = 0
+        while not done:
+            env.render()
+            action = random.choice([0,1])
+            n_state, reward, done, info = env.step(action)
+            score+=reward
+        print('Episode:{} Score:{}'.format(episode, score))
+        scoress.append(score)
+  ```
+You must see a list with the episode and their obtained reward.
+
+In Google Colab,  it is important to note that there is no display driver available for generating videos. However, it is possible to install a virtual display driver to get it to work so you can see the response system's responce to actions
+
+6. Installing the libraries for recording the video
+  ```bash
+    !apt-get install -y xvfb x11-utils
+    !pip install pyvirtualdisplay==0.2.*
+  ```
+
+7. Starting an instance of the virtual display
+  ```bash
+    from pyvirtualdisplay import Display
+    display = Display(visible=False, size=(1400, 900))
+    _ = display.start()
+  ```
+
+OpenAI gym has a VideoRecorder wrapper that can record a video of the running environment in MP4 format.
+
+8. The code below is the same as before except that it is for 200 steps and is recording.
+  ```bash
+    from gym.wrappers.monitoring.video_recorder import VideoRecorder
+    before_training = "before_training.mp4"
+
+    video = VideoRecorder(env, before_training)
+      # returns an initial observation
+    env.reset()
+    for i in range(200):
+      env.render()
+      video.capture_frame()
+      # env.action_space.sample() produces either 0 (left) or 1 (right).
+      observation, reward, done, info = env.step(env.action_space.sample())
+
+    video.close()
+    env.close()
+  ```
+
+9. Function to create and encode the video
+  ```bash
+    from base64 import b64encode
+    def render_mp4(videopath: str) -> str:
+      """
+      Gets a string containing a b4-encoded version of the MP4 video
+      at the specified path.
+      """
+      mp4 = open(videopath, 'rb').read()
+      base64_encoded_mp4 = b64encode(mp4).decode()
+      return f'<video width=400 controls><source src="data:video/mp4;' \
+            f'base64,{base64_encoded_mp4}" type="video/mp4"></video>'
+  ```
+
+10. Rendering and displaying the obtained video
+  ```bash
+    from IPython.display import HTML
+    html = render_mp4(before_training)
+    HTML(html)
+  ```
+
+**NOTE:** You must be able to see a video like this
+
+<video src="resources/cartpole_no_control.mp4" width="320" height="240" controls></video>
+
+
+
+
 
 # Homework 1 Cart-Pole Example
 
