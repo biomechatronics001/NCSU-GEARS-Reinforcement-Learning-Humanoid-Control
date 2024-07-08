@@ -58,9 +58,95 @@ For remote students, you may use the Virtual Computing Lab (VCL) facilities prov
 
 ## Objective
 
-1. Understand the basic concepts in reinforcement learning: environment, agent, observation, action, reward, policy, etc.
+1. Understand the basic concepts in reinforcement learning:
+  * Environment
+  * Agent
+  * Satates
+  * Observation
+  * Action, reward, policy, etc.
 
-2. Investigate the influence of number of neurons, number of network hidden layers, training episodes on the performance of the trained policy.
+2. Investigate the influence of number of neurons, number of network hidden layers, and training episodes on the performance of the trained policy.
+
+## Introduction
+
+For this activity we will employ Google Colab togheter with OpenAI's Gym and Python.
+
+### Google Colab
+
+Google Colab, or Google Colaboratory, is a free cloud service provided by Google that allows users to write and execute Python code in a web-based interactive environment.
+It offers convenient features such as:
+
+* Free Access to GPUs and TPUs: free access to powerful GPUs and TPUs, making it easier to train machine learning models and perform computations that require significant processing power.
+
+* Interactive Python Notebooks: Colab uses Jupyter Notebook, which supports rich text, visualizations, and code execution in an interactive format.
+
+* Easy Sharing and Collaboration: Notebooks can be easily shared and collaborated on, similar to Google Docs. Multiple users can work on the same notebook simultaneously.
+
+* Integration with Google Drive: Colab integrates seamlessly with Google Drive, allowing you to save and access your notebooks and datasets directly from your Drive.
+
+* Code Execution in the Cloud: Since the code runs on Google's cloud servers, users don't need to worry about the computational limits of their local machines.
+
+* Markdown Support: Users can include formatted text, equations, and visualizations within the notebook using Markdown, enhancing the readability and presentation of the code and results.
+
+### OpenAI Gym
+
+OpenAI Gym is a toolkit developed by OpenAI for developing and comparing reinforcement learning (RL) algorithms. It provides a standardized set of environments (e.g., games, robotic tasks, control problems) that researchers and developers can use to test and evaluate their RL algorithms. Here are some key features of OpenAI Gym:
+
+* Variety of Environments: Gym offers a wide range of environments, including classic control tasks, Atari games, robotic simulations, and more.
+
+* Standard Interface: All environments in Gym follow a standard interface with methods like reset(), step(action), render(), and close(). This makes it easy to switch between different environments without changing the algorithm code.
+
+* Community and Benchmarks: Gym has a strong community of researchers and practitioners who contribute to the toolkit, create new environments, and share results. It also provides benchmarks for comparing the performance of different RL algorithms.
+
+* Integration with Other Libraries: Gym can be easily integrated with popular RL libraries like TensorFlow, PyTorch, and stable-baselines, facilitating the development and testing of RL models.
+
+* Extensibility: Users can create custom environments by following the Gym API, making it suitable for a wide range of applications beyond the provided environments.
+
+### CartPole Environment
+
+OpenAI's Gym environment "CartPole" is a classic control problem in reinforcement learning (RL). The primary objective is to balance a pole on a cart by applying forces to the cart to keep the pole upright. Here's a detailed description of the CartPole environment:
+
+Environment Setup
+
+1. Cart and Pole Dynamics:
+
+  * Cart: A small cart that can move left or right along a frictionless track.
+  * Pole: A pole attached to the cart by an unactuated joint. The pole starts upright and can fall to either side.
+
+2. State Space:
+
+  * The state is represented by a four-dimensional vector:
+    1. cart_position: The position of the cart on the track.
+    2. cart_velocity: The velocity of the cart.
+    3. pole_angle: The angle of the pole from the vertical.
+    4. pole_velocity_at_tip: The velocity of the tip of the pole.
+
+3. Action Space:
+
+* The action space is discrete with two possible actions:
+    * 0: Apply a force to the cart to move it to the left.
+    * 1: Apply a force to the cart to move it to the right.
+
+Objective
+The primary goal is to keep the pole balanced and the cart within the track boundaries for as long as possible. The episode terminates if:
+
+The pole angle exceeds ±12 degrees from the vertical.
+The cart position exceeds ±2.4 units from the center.
+The episode length reaches a maximum of 200 time steps (configurable in some versions).
+Reward
+The reward structure is simple:
+
+The agent receives a reward of +1 for every time step the pole remains upright and within the allowed boundaries.
+Termination Conditions
+The episode ends when:
+
+The pole falls beyond the allowed angle.
+The cart moves out of the allowed position range.
+The maximum number of time steps is reached.
+
+## Set up
+
+On this regard, the first step is to create a new Google Colab Notebook
 
 # Homework 1 Cart-Pole Example
 
