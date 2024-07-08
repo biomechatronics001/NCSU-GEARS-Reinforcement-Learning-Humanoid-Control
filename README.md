@@ -23,7 +23,7 @@
 
 # Tentative Syllabus for Individual Project & Training
 
-| Week | Lecture | Content (in New York time) | Homework Assignment (due in 1 week) | 
+| Week | Lecture | Content (in New York time) | Homework (due in 1 week) | 
 | :---: | :---: | --- | --- |
 | 1 | 1 | Introduction to robot control with reinforcement learning (07/11, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Paper List](#paper-list) |
 | 1 | 2 | Introduction to Ubuntu, MuJoCo, IsaacGym (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) |  |
@@ -51,7 +51,13 @@ For remote students, you may use the Virtual Computing Lab (VCL) facilities prov
    * **Related seminar talk in 2021 by Prof. Hwangbo**: [Control Legged Robots Reinforcement Learning](https://www.youtube.com/watch?v=6WLqK2X1RAc)
 * **[Our 2024 Nature]** S. Luo, M. Jiang, S. Zhang, J. Zhu, S. Yu, I. Dominguez Silva, T. Wang, E. Rouse, B. Zhou, H. Yuk, X. Zhou, and H. Su, “Experiment-free exoskeleton assistance via learning in simulation,” Nature, vol. 630, no. 8016, pp. 353–359, Jun. 2024.
 * **[Davide23 Nature]** E. Kaufmann, L. Bauersfeld, A. Loquercio, M. Müller, V. Koltun, and D. Scaramuzza, “Champion-level drone racing using deep reinforcement learning,” Nature, vol. 620, no. 7976, pp. 982–987, Aug. 2023. | [Seminar Talk](https://www.youtube.com/watch?v=tb1SCib0OTo)
-* **[IIya Deep Learning]** [Deep Learning Theory Session Ilya SutskeverIlya Sutskever](https://www.youtube.com/watch?v=OAm6zyR_c8k)
+* **[IIya Sutskever]** [Deep Learning Theory Session: The unreasonable effectiveness of deep learning](https://www.youtube.com/watch?v=OAm6zyR_c8k)
+* **[JHU Prof. Rama Chellappa]** [Design of Adaptive Fair and Robust AI Systems](https://www.youtube.com/watch?v=kjxP7fQf3w8)
+* **[3Blue1Brown]** [What is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) | [Gradient descent: how neural networks learn?](https://www.youtube.com/watch?v=IHZwWFHWa-w)
+* **[Hung-yi Li Introduction to Machine Learning]** [Part 1](https://www.youtube.com/watch?v=Y87Ct23H3Kw&list=PLJV_el3uVTsNxV_IGauQZBHjBKZ26JHjd) | [Part 2](https://www.youtube.com/watch?v=O69EqgzUl9U&list=PLJV_el3uVTsNxV_IGauQZBHjBKZ26JHjd&index=3)
+* **[Andrej Karpathy]** [Introduction to Large Language Models: core technical component behind ChatGPT, Claude, and Bard](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+* **[UC Berkeley Sergey Levine]** [Data-Driven Reinforcement Learning in Robotics, Language, and Beyond Share](https://www.youtube.com/watch?v=qCpeiYkqMEI) 
+* **[NYU Yann LeCun]** [From Machine Learning to Autonomous Intelligence](https://www.youtube.com/watch?v=pd0JmT6rYcI)
 
 <br>
 
