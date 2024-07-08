@@ -4,7 +4,7 @@
 
 **Instructor**: Professor Hao Su, Ivan Sanchez (postdoc), Junxi Zhu (PhD student)
 
-**Location**: Room TBD, Engineering Building III (for in-person students only)
+**Location**: Room 3209, Engineering Building III (unless otherwise specified; for in-person students only)
 
 **Time**: TBD
 
@@ -25,8 +25,8 @@
 
 | Week | Lecture | Content | Homework Assignment | 
 | :---: | :---: | --- | --- |
-| 1 | 1 | Program overview (07/11, 10a - 11:30a, New York time) | See [Paper List](#paper-list) |
-| 1 | 2 | Install software environment (Ubuntu, MuJoCo, IsaacGym) (07/12, 10a - 11:30a, New York time) |  |
+| 1 | 1 | Program overview (07/11, 10a - 11:30a, New York time, Room 3209, Enginnering Building III) | See [Paper List](#paper-list) |
+| 1 | 2 | Install software environment (Ubuntu, MuJoCo, IsaacGym) (07/12, 10a - 11:30a, New York time, Room 3209, Enginnering Building III) |  |
 | 2 | 3 | Reinforcement learning basics<br>Cart-pole example (Date TBD) | See [Homework 1 Cart-Pole Example](#homework-1-cart-pole-example) | 
 | 2 | 4 | Define custom URDF file for robots and visualize in MuJuCo (Date TBD) |  |
 | 3 | 5 | Introduction to humanoid robots<br>Reward function formulation (Date TBD) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
