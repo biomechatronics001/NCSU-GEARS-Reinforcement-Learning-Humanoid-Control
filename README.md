@@ -114,22 +114,32 @@ Placeholder
   
 * Clone the pbrs-humanoid repository and initialize the submodules
   
-  1. ``git clone https://github.com/se-hwan/pbrs-humanoid.git``
-  2. ``cd pbrs-humanoid/gpugym && git submodule init && git submodule update``
+  ```bash
+  git clone https://github.com/se-hwan/pbrs-humanoid.git
+  ```
+  ```bash
+  cd pbrs-humanoid/gpugym && git submodule init && git submodule update
+  ```
 
   **Note**: In case you dont have git installed: ``sudo apt-get install git``. Then, clone the repository.
   
 * Install gpu_rl (Proximal Policy Optimization - PPO implementation)
 
-  ``cd pbrs-humanoid/gpu_rl && pip install -e .``
+  ```bash
+  cd pbrs-humanoid/gpu_rl && pip install -e .
+  ```
 
 * Install gpuGym
 
-  ``cd .. && pip install -e .``
+  ```bash
+  cd .. && pip install -e .
+  ```
 
 * Install WandB (for tracking on the learned policy during the training stage)
 
-  ``pip install wandb==0.15.11``
+  ```bash
+  pip install wandb==0.15.11
+  ```
 
 ## Setup Wandb for logging
 
@@ -143,7 +153,7 @@ Placeholder
 
 4. In the virtual environment, execute the following and enter your API key and prese Enter. Note that for security reasons, the key you entered/pasted will not be visible.
 
-    ```python
+    ```bash
     wandb login
     ```
 
@@ -151,7 +161,7 @@ Placeholder
 
 To start the training, exeute the following:
 
-```python
+```bash
 python gpugym/scripts/train.py --task=pbrs:humanoid --experiment_name=<NAME> --run_name=<NAME> --wandb_project=<NAME> --wandb_entity=<NAME> --wandb_name=<NAME>
 ```
   
@@ -177,7 +187,9 @@ python gpugym/scripts/train.py --task=pbrs:humanoid --experiment_name=<NAME> --r
 
 ## Run the trained policy
 
-  ``python gpugym/scripts/play.py --task=pbrs:humanoid``
+  ```bash
+  python gpugym/scripts/play.py --task=pbrs:humanoid
+  ```
 
   **Note**: This is the result: https://www.youtube.com/watch?v=4AzTJMkW2ZA
 
