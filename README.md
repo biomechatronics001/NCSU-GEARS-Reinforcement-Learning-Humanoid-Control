@@ -261,6 +261,9 @@ OpenAI gym has a VideoRecorder wrapper that can record a video of the running en
 
 **NOTE:** You must be able to see a video like this
 
+https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/15719381/a04dd9c2-24d2-4e5f-b217-d817dc71cb92
+
+
 <video src="resources/cartpole_no_control.mp4" width="320" height="240" controls></video>
 
 
