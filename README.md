@@ -68,20 +68,20 @@ For remote students, you may use the Virtual Computing Lab (VCL) facilities prov
 1. Understand the basic concepts in reinforcement learning:
   * Environment
   * Agent
-  * Satates
+  * States
   * Observation
   * Action
   * Reward
   * Policy
 
-2. Compare the the performance of the trained policy regarding
+2. Compare the performance of the trained policy regarding
   * Number of neurons
   * Number of network hidden layers
   * Training episodes
 
 ## Introduction
 
-For this activity we will employ Google Colab togheter with OpenAI's Gym and Python.
+We will employ Google Colab with OpenAI's Gym and Python for this activity.
 
 ### Google Colab
 
@@ -300,9 +300,8 @@ Based on the [Examples](#examples) obtained using the code in https://colab.rese
     * Weights between each layer (trainable parameters)
     * Biases (per layer)
     * Total of trainable parameters
-  
-     ![IMG_0078](https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/b8d87d4b-0412-4159-995f-8d65baa7b4f1)
 
+![IMG_0079](https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/240f5326-b542-4792-86ea-ba22fbfdf745)
 
 ### Examples
 
