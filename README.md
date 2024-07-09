@@ -273,9 +273,24 @@ https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid
 
 Based on the [Examples](#examples) obtained using the code in https://colab.research.google.com/drive/1_8QPXhnxju08xjuRWhNm2vN7LZlh5kbf#scrollTo=uINMg_bZQvnA:
 
-* Create and compare the performance and reward values per episode for different models employing the same agent (Deep Q-Network)
-  1. Model with 2 hidden layers and 24 neurons per layer with relu activation funcions for the hidden layers and a linear activation function for the output layer, 5000 training episodes.
-  2. Model with 2 hidden layers and 24 neurons per layer with relu activation funcions for the hidden layers and a linear activation function for the output layer, 5000 training episodes.
+**Compare the performance and reward values per episode for different models employing the same agent (Deep Q-Network)**
+
+1. Training episodes: Model with 2 hidden layers and 24 neurons per layer with relu activation funcions for the hidden layers and a linear activation function for the output layer.
+    * 5,000 training episodes.
+    * 10,000 training episodes.
+    * 20,000 training episodes.
+
+2. Number of neurons per layer: Model with 2 hidden layers with relu activation funcions for the hidden layers and a linear activation function for the output layer, 5000 training episodes.
+    * 24 neurons per layer
+    * 32 neurons per layer
+    * 40 neurons per layer
+
+3. Number of hidden layers: Model with 24 neurons per layer with relu activation funcions for the hidden layers and a linear activation function for the output layer, 5,000 training episodes.
+    * 2 hidden layers
+    * 4 hidden layers
+    * 6 hidden layers
+
+**HINT:** you can use several google colab notebooks simultaneously to accelerate the procces of training each model.
 
 ### Examples
 
