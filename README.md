@@ -271,9 +271,13 @@ https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid
 
 ## Homework 1 Cart-Pole Example
 
-# Final Result
+### Final Result
+
+1. Deep Q-Network Agent with 2 hidden layers with 24 neurons each and rectified linear units as activation fucntions, trained for 5000 episodes.
 
 https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/ef366702-e83c-48d6-bae2-4f648b5fb358
+
+2. 1. Deep Q-Network Agent with 2 hidden layers with 32 neurons each and rectified linear units as activation fucntions, trained for 50000 episodes.
 
 https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/fc57668f-783e-4e4e-9e20-8a0252a148f4
 
