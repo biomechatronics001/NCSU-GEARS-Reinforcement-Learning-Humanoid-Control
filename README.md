@@ -271,13 +271,19 @@ https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid
 
 ## Homework 1 Cart-Pole Example
 
+Based on the [Examples](#examples) obtained using the code in https://colab.research.google.com/drive/1_8QPXhnxju08xjuRWhNm2vN7LZlh5kbf#scrollTo=uINMg_bZQvnA:
+
+* Create and compare the performance and reward values per episode for different models employing the same agent (Deep Q-Network)
+  1. Model with 2 hidden layers and 24 neurons per layer with relu activation funcions for the hidden layers and a linear activation function for the output layer, 5000 training episodes.
+  2. Model with 2 hidden layers and 24 neurons per layer with relu activation funcions for the hidden layers and a linear activation function for the output layer, 5000 training episodes.
+
 ### Examples
 
-1. Deep Q-Network Agent with 2 hidden layers with 24 neurons each and rectified linear units as activation fucntions, trained for 5000 episodes.
+1. Deep Q-Network Agent with 2 hidden layers with 24 neurons each and rectified linear units as activation functions, trained for 5000 episodes.
 
 https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/ef366702-e83c-48d6-bae2-4f648b5fb358
 
-2. Deep Q-Network Agent with 2 hidden layers with 32 neurons each and rectified linear units as activation fucntions, trained for 50000 episodes.
+2. Deep Q-Network Agent with 2 hidden layers with 32 neurons each and rectified linear units as activation functions, trained for 50000 episodes.
 
 https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/fc57668f-783e-4e4e-9e20-8a0252a148f4
 
