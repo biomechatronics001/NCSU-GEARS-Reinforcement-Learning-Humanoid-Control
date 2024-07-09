@@ -292,6 +292,15 @@ Based on the [Examples](#examples) obtained using the code in https://colab.rese
 
 **HINT:** you can use several google colab notebooks simultaneously to accelerate the procces of training each model.
 
+### Deliverables
+
+1. Diagram of each of the neural network architectures (without repeating them) specifying:
+    * Number of inputs
+    * Number of outputs
+    * Weights between each layer (trainable parameters)
+    * Biases (per layer)
+    * Total of trainable parameters
+
 ### Examples
 
 1. Deep Q-Network Agent with 2 hidden layers with 24 neurons each and rectified linear units as activation functions, trained for 5000 episodes.
