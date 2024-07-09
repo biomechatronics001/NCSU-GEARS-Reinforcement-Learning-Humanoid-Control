@@ -300,6 +300,9 @@ Based on the [Examples](#examples) obtained using the code in https://colab.rese
     * Weights between each layer (trainable parameters)
     * Biases (per layer)
     * Total of trainable parameters
+  
+     ![IMG_0078](https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/b8d87d4b-0412-4159-995f-8d65baa7b4f1)
+
 
 ### Examples
 
