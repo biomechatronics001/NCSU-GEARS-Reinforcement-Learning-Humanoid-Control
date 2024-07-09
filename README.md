@@ -269,10 +269,15 @@ OpenAI gym has a VideoRecorder wrapper that can record a video of the running en
 
 https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/ccd937ca-15c7-4662-928a-3685243fdd5a
 
+## Homework 1 Cart-Pole Example
 
-# Homework 1 Cart-Pole Example
+# Final Result
 
-Placeholder
+https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/ef366702-e83c-48d6-bae2-4f648b5fb358
+
+https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/fc57668f-783e-4e4e-9e20-8a0252a148f4
+
+
 
 # Humanoid Project
 
