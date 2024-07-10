@@ -26,8 +26,8 @@
 | Week | Lecture | Content (in New York time) | Homework (due in 1 week) | 
 | :---: | :---: | --- | --- |
 | 1 | 1 | Introduction to robot control with reinforcement learning (07/11, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Paper List](#paper-list) |
-| 1 | 2 | Cart-pole example <br> Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
-| 2 | 3 | Introduction to Reinforcement learning  (Date TBD) |  |
+| 1 | 2 | Project Overview (cart-pole + humanoid robot) <br> Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) | |
+| 2 | 3 | Introduction to Reinforcement learning <br> Cart-pole example  (Date TBD) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
 | 2 | 4 | Introduction to humanoid robots<br>Reward function formulation (Date TBD) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
 | 3 | 5 | Tune reward function and train humanoid robot controller (Date TBD) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
 | 3 | 6 | Poster feedback | Poster must be completed by July 25 |
