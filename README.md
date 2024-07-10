@@ -26,8 +26,8 @@
 | Week | Lecture | Content (in New York time) | Homework (due in 1 week) | 
 | :---: | :---: | --- | --- |
 | 1 | 1 | Introduction to robot control with reinforcement learning (07/11, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Paper List](#paper-list) |
-| 1 | 2 | Introduction to Reinforcement learning <br> Cart-pole example (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Cart-Pole Example](#homework-1-cart-pole-example) |
-| 2 | 3 | Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (Date TBD) |  |
+| 1 | 2 | Cart-pole example <br> Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
+| 2 | 3 | Introduction to Reinforcement learning  (Date TBD) |  |
 | 2 | 4 | Introduction to humanoid robots<br>Reward function formulation (Date TBD) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
 | 3 | 5 | Tune reward function and train humanoid robot controller (Date TBD) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
 | 3 | 6 | Poster feedback | Poster must be completed by July 25 |
@@ -267,7 +267,7 @@ OpenAI gym has a VideoRecorder wrapper that can record a video of the running en
 
 https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid-Control/assets/50973445/ccd937ca-15c7-4662-928a-3685243fdd5a
 
-## Homework 1 Cart-Pole Example
+## Homework 1 Compute Network Parameters and Compare Controller Performance
 
 Based on the [Examples](#examples) obtained using the code in https://colab.research.google.com/drive/1_8QPXhnxju08xjuRWhNm2vN7LZlh5kbf#scrollTo=uINMg_bZQvnA:
 
