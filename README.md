@@ -26,15 +26,13 @@
 | Week | Lecture | Content (in New York time) | Homework (due in 1 week) | 
 | :---: | :---: | --- | --- |
 | 1 | 1 | Introduction to robot control with reinforcement learning (07/11, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Paper List](#paper-list) |
-| 1 | 2 | Introduction to Ubuntu, MuJoCo, IsaacGym (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) |  |
-| 2 | 3 | Reinforcement learning basics<br>Cart-pole example (Date TBD) | See [Homework 1 Cart-Pole Example](#homework-1-cart-pole-example) | 
-| 2 | 4 | Define custom URDF file for robots and visualize in MuJuCo (Date TBD) |  |
-| 3 | 5 | Introduction to humanoid robots<br>Reward function formulation (Date TBD) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
-| 3 | 6 | Tune reward function and train humanoid robot controller (Date TBD) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
-| 4 | 7 | Poster feedback | Poster must be completed by July 25 |
+| 1 | 2 | Reinforcement learning basics<br>Cart-pole example (Date TBD) | See [Homework 1 Cart-Pole Example](#homework-1-cart-pole-example) |
+| 2 | 3 | Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) |  |
+| 2 | 4 | Introduction to humanoid robots<br>Reward function formulation (Date TBD) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
+| 3 | 5 | Tune reward function and train humanoid robot controller (Date TBD) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
+| 3 | 6 | Poster feedback | Poster must be completed by July 25 |
 
-
-# Hardware and Software Requirement
+# Hardware and Software Requirements
 
 It is strongly recommended that you have a computer with **Linux 18.04** operating system and a **Nvidia GPU** that supports CUDA with **more than 8 GB of VRAM**. They are necessary for the reinforcement learning project.
 
