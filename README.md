@@ -482,8 +482,6 @@ If you don't have a trained policy and just want to visualize the robot, please 
 
 # Homework 2 Reward Function Formulation
 
-Please reproduce Fig. 3 and Fig. 5 of the paper.
-
 Placeholder
 
 # Homework 3 Humanoid Virtual Competition
