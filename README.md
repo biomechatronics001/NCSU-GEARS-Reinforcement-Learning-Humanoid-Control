@@ -272,7 +272,7 @@ https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid
 
 Based on the [Examples](#examples) obtained using the code in https://colab.research.google.com/drive/1_8QPXhnxju08xjuRWhNm2vN7LZlh5kbf#scrollTo=uINMg_bZQvnA:
 
-**Compare the performance and reward values per episode for different models employing the same agent (Deep Q-Network)**
+Part 1. Compare the performance and reward values per episode for different models employing the same agent (Deep Q-Network). Please describe your findings in text and attach figures and videos, if necessary.
 
 1. Training episodes: Model with 2 hidden layers and 24 neurons per layer with relu activation funcions for the hidden layers and a linear activation function for the output layer.
     * 5,000 training episodes.
@@ -291,7 +291,7 @@ Based on the [Examples](#examples) obtained using the code in https://colab.rese
 
 **HINT:** you can use several google colab notebooks simultaneously to accelerate the procces of training each model.
 
-### Deliverables
+Part 2. Submit a brief answer to the questions below using both text and figures.
 
 1. Diagram of each of the neural network architectures (without repeating them) specifying:
     * Number of inputs
@@ -327,10 +327,14 @@ As you can see, even with the same agent, different performance can be obtaining
 
 ## Installation
 
-* Create the virtual environment using Python 3.8 (``user`` is your machine username; you may also use Anaconda to create and manage the virtual environment)
+* Open the terminal
+
+  ![UbuntuTerminal](./resources/Ubuntu_Open_Terminal.png)
+
+* Create the virtual environment using Python 3.8 (``user`` is your machine username; you may use another name for the environment other than the ``leggedrobot``; you may also use Anaconda to create and manage the virtual environment)
   
   ```bash
-  virtualenv /home/user/leggedrobot --python=python3
+  virtualenv /home/[user]/leggedrobot --python=python3.8
   ```
 
 * Activate the virtual environment
@@ -352,11 +356,11 @@ As you can see, even with the same agent, different performance can be obtaining
 * Install Isaac Gym
 
   1. Download Isaac Gym Preview 4 from https://developer.nvidia.com/isaac-gym
-  2. Extract the zip package in the virtual environment folder.
-  3. ``cd isaacgym_lib/python && pip install -e .`` to install the requirements.
-  4. Test the installation by running an example: ``cd isaacgym/python/examples && python 1080_balls_of_solitude.py``.
+  2. Extract the zip package to get the ``isaacgym`` folder and save it to whereever you want it to live.
+  3. ``cd /path/to/isaacgym/python && pip install -e .`` to install the requirements.
+  4. Test the installation by running an example: ``cd /path/to/isaacgym/python/examples && python 1080_balls_of_solitude.py``.
   
-  **Note**:: You should be able to see a new window apperaing with a group of balls falling
+  **Note**: You should be able to see a new window apperaing with a group of balls falling
   
   ![IsaacGymDemo](./resources/balls_of_solitude.png)
   
@@ -389,7 +393,21 @@ As you can see, even with the same agent, different performance can be obtaining
   pip install wandb==0.15.11
   ```
 
+## Install Visual Studio Code (VSCode) and Edit the Code
+
+* Ubuntu 18.04 only supports VSCode up to v1.85, which is available here: https://update.code.visualstudio.com/1.85.2/linux-deb-x64/stable. Double click the downloaded deb file and click "Install".
+
+* Open VSCode, use "File -> Open Folder" to open the ``pbrs-humanoid`` folder. Select "Trust the authors of all files in the parent folder 'XXX' and click the "Yes, I trust the authors" button.
+  
+  <img src="./resources/VSCode_Trust_Author.png" alt="VSCodeTrustAuthor" width="500"/>
+
+* Due to a version change in the ``numpy`` package, all occurance of ``np.float`` in the downloaded code should be replaced by ``np.float64``. You can do this by first clicking the magnifier icon of the VSCode, and then clicking the "Replace All" button as shown below.
+
+  <img src="./resources/VSCode_Replace_Numpy_Float.png" alt="VSCodeTrustAuthor" width="300"/>
+
 ## Setup Wandb for logging
+
+**Note**: You can directly proceed to [Run a blank policy](#run-a-blank-policy) section if you only want to visualize the robot with a blank policy.
 
 1. Create an account on https://wandb.ai/site.
 
@@ -405,12 +423,12 @@ As you can see, even with the same agent, different performance can be obtaining
     wandb login
     ```
 
-## Train the control policy
+## Train a control policy
 
 To start the training, execute the following:
 
 ```bash
-python gpugym/scripts/train.py --task=pbrs:humanoid --experiment_name=<NAME> --run_name=<NAME> --wandb_project=<NAME> --wandb_entity=<NAME> --wandb_name=<NAME>
+python /path/to/gpugym/scripts/train.py --task=pbrs:humanoid --experiment_name=<NAME> --run_name=<NAME> --wandb_project=<NAME> --wandb_entity=<NAME> --wandb_name=<NAME>
 ```
   
 **Note**: You should see something like this
@@ -433,16 +451,34 @@ python gpugym/scripts/train.py --task=pbrs:humanoid --experiment_name=<NAME> --r
   * ``wandb_entity`` WANDB_ENTITY: This is your Wandb user name from the homepage.
   * ``wandb_name`` WANDB_NAME: This is the display name of your run on Wandb.
 
-## Run the trained policy
+The trained policy is saved in the folder ``/pbrs-humanoid/logs/[experiment_name]/[run_name]``.
+
+## Run a blank policy
+
+If you don't have a trained policy and just want to visualize the robot, please do the following:
+
+* Copy the folder ``/humanoid_project/blank_policy`` from this repository to ``/pbrs-humanoid/logs/PBRS/`` on your local computer (You can use another folder name other than ``PBRS``, but you need to pass the folder name to the ``--experiment_name`` argument below).
+
+* Run the following command in the virtual environment in the terminal:
 
   ```bash
-  python gpugym/scripts/play.py --task=pbrs:humanoid
+  python /path/to/gpugym/scripts/play.py --task=pbrs:humanoid --experiment_name=PBRS --load_run=blank_policy
   ```
+
+* The IsaacGym window will pop up. You will see robots collapsing because the controller is doing nothing.
+
+## Run a trained policy
+
+  ```bash
+  python /path/to/gpugym/scripts/play.py --task=pbrs:humanoid --experiment_name=[EXPERIMENT_NAME] --load_run=[RUN_NAME]
+  ```
+
+  This command will load the trained policy from ``/pbrs-humanoid/logs/[EXPERIMENT_NAME]/[RUN_NAME]`` on your computer.
 
   **Note**: This is the result: https://www.youtube.com/watch?v=4AzTJMkW2ZA
 
   * By default the loaded policy is the last model of the last run of the experiment folder.
-  * Other runs/model iteration can be selected by setting ``load_run`` and ``checkpoint`` in the train config.
+  * Other runs/model iteration can be selected by setting ``checkpoint`` in the train config.
 
 # Homework 2 Reward Function Formulation
 
