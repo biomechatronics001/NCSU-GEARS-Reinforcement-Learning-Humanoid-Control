@@ -272,7 +272,7 @@ https://github.com/biomechatronics001/NCSU-GEARS-Reinforcement-Learning-Humanoid
 
 **IMPORTANT:** To have access to the Google Colab file you must access it through your NCSU email.
 
-Based on the [Examples](#examples) obtained using the code in https://colab.research.google.com/drive/1_8QPXhnxju08xjuRWhNm2vN7LZlh5kbf#scrollTo=uINMg_bZQvnA:
+Based on the [Examples](#examples) obtained using the code in https://colab.research.google.com/drive/1_8QPXhnxju08xjuRWhNm2vN7LZlh5kbf?usp=sharing
 
 Part 1. Compare the performance and reward values per episode for different models employing the same agent (Deep Q-Network). Please describe your findings in text and attach figures and videos, if necessary.
 
