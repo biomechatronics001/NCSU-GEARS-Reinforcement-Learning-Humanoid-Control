@@ -29,8 +29,8 @@
 | 1 | 2 | Project Overview (humanoid robot) <br> Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) | |
 | 2 | 3 | Introduction to Reinforcement learning <br> Cart-pole example  (07/16, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
 | 2 | 4 | Introduction to humanoid robots (humanoid robot project) <br> Reward function formulation (07/18, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
-| 3 | 5 | Tune reward function and train humanoid robot controller (Date TBD) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
-| 3 | 6 | Poster feedback | Poster must be completed by July 25 |
+| 2 | 5 | Tune reward function and train humanoid robot controller (07/19, 1p - 2:30p, Room 3209, Enginnering Building III) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
+| 3 | 6 | Q&A<br>Poster feedback (07/23, 1p - 2:30p, Room 3235, Enginnering Building III) | Poster must be completed by July 25 |
 
 # Hardware and Software Requirements
 
@@ -349,10 +349,18 @@ As you can see, even with the same agent, different performance can be obtaining
       Something like this ``(leggedrobot)user@PCname:~$``.
     
 
-* Install required libraries (pythorch 1.10 and cuda 11.3)
+* Install required libraries (pythorch and cuda)
+
+  If your GPU is below Nvidia RTX4080, please use the following command:
 
   ```bash
   pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+  ```
+
+  If you encounter an error saying that "RuntimeError: nvrtc: error: invalid value for --gpu-architecture (-arch)" in the [Run a blank policy](#run-a-blank-policy) section below, please use the following command:
+
+  ```bash
+  pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117/
   ```
 
 * Install Isaac Gym
@@ -365,6 +373,23 @@ As you can see, even with the same agent, different performance can be obtaining
   **Note**: You should be able to see a new window apperaing with a group of balls falling
   
   ![IsaacGymDemo](./resources/balls_of_solitude.png)
+
+  If you encounter an error saying that "ImportError: libpython3.8.so.1.0: cannot open shared object file", please copy the corresponding file to `/usr/lib` or `/usr/lib64`.
+
+  ```bash
+  find / -name libpython3.8.so.1.0
+  ```
+  It is mostly probably inside your virtual environment, e.g, `/home/<user_name>/anaconda/envs/<env_name>/lib/libpython3.8.so.1.0`.
+
+  ```bash
+  sudo cp /path/to/libpython3.8.so.1.0 /usr/lib/
+  ```
+
+  Or
+
+  ```bash
+  sudo cp /path/to/libpython3.8.so.1.0 /usr/lib64/
+  ```
   
 * Clone the pbrs-humanoid repository and initialize the submodules
   
