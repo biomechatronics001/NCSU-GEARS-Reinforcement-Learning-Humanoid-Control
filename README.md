@@ -30,7 +30,7 @@
 | 2 | 3 | Introduction to Reinforcement learning <br> Cart-pole example  (07/16, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
 | 2 | 4 | Introduction to humanoid robots (humanoid robot project) <br> Reward function formulation (07/18, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
 | 2 | 5 | Tune reward function and train humanoid robot controller (07/19, 1p - 2:30p, Room 3209, Enginnering Building III) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
-| 3 | 6 | Q&A<br>Poster feedback (07/23, 1p - 2:30p, Room 3235, Enginnering Building III) | Poster must be completed by July 25 |
+| 3 | 6 | Q&A<br>Poster feedback (07/23, 2p - 3:30p, Room 3235, Enginnering Building III) | Poster must be completed by July 25 |
 
 # Hardware and Software Requirements
 
