@@ -515,4 +515,25 @@ Placeholder
 
 Placeholder
 
+# FAQ
 
+1. My Ubuntu fails to boot after restarting the computer. The error message says "Unexpected return from initial read: Volume Corrupt", "Failed to load image: Volume Corrupt", "start_image() returned Volume Corrupt".
+
+   This error message indicates that your Ubuntu partition is probably corrupted. You may use the Boot-Repair tool and try to repair the partition. In most cases it should work, but there is no guarantee!
+
+   * Create a Ubuntu Live USB (basically burn the Ubuntu image into this disk to make it a bootable disk)
+
+   * Restart the computer with this USB plugged into your computer. Press and hold `F12` key (other other key depending on your computer) to go into BIOS setup. Choose to boot from this Live USB.
+
+   * A GRUB window should pop up. Select "Try Ubuntu" and press Enter. This will take you to a live Ubuntu session.
+
+   * Connect to the Wi-Fi. Open a terminal and type in the following to install and run the Boot-Repair tool. Select the "Recommended Option" and follow all the on-screen instructions.
+
+      ```bash
+      sudo add-apt-repository ppa:yannubuntu/boot-repair -y
+      sudo apt-get update
+      sudo apt-get install boot-repair -y
+      sudo boot-repair
+      ```
+
+   * Restart your computer and boot into your normal Ubuntu. It may take a while but hopefully everything should be working now!
