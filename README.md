@@ -28,7 +28,7 @@
 | 1 | 1 | Introduction to robot control with reinforcement learning (07/11, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Paper List](#paper-list) |
 | 1 | 2 | Project Overview (humanoid robot) <br> Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) | |
 | 2 | 3 | Introduction to Reinforcement learning <br> Cart-pole example  (07/16, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
-| 2 | 4 | Introduction to humanoid robots (humanoid robot project) <br> Reward function formulation (07/18, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
+| 2 | 4 | Introduction to policy-based learning and humanoid project (07/18, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
 | 2 | 5 | Tune reward function and train humanoid robot controller (07/19, 1p - 2:30p, Room 3209, Enginnering Building III) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
 | 3 | 6 | Q&A<br>Poster feedback (07/23, 2p - 3:30p, Room 3235, Enginnering Building III) | Poster must be completed by July 25 |
 
@@ -509,7 +509,37 @@ If you don't have a trained policy and just want to visualize the robot, please 
 
 # Homework 2 Reward Function Formulation
 
-Placeholder
+## Objectives
+
+1. Understand the concepts of reinforcement learning (RL) and potential-based reward shaping (PBRS).
+
+2. Reproduce Fig. 3 from the paper, which involves training models with baseline rewards, direct reward shaping (DRS), and PBRS.
+
+## Tasks
+
+1. Reading and Questions:
+
+    * Read Sections I, II, and III of the paper to understand the problem statement, reward shaping, and the humanoid locomotion case study.
+    * Answer the following questions:
+        * What are the main challenges in designing effective reward functions for RL?
+        * Explain the difference between direct reward shaping (DRS) and potential-based reward shaping (PBRS).
+        * What are the benefits of using PBRS as mentioned in the paper?
+
+2. Coding:
+
+    * Set up the software environment based on the instructions from the GitHub page.
+    * Model the code to train the model using baseline rewards, DRS, and PBRS as described in Section III and Table II of the paper.
+    * Reproduce Fig. 3 by plotting the baseline rewards during training for the three reward formulations.
+
+3. Analysis:
+
+    * Compare the results of the three training runs.
+    * Write a short summary describing:
+        * The differences in convergence speed and stability among the three rewards.
+        * Any challenges faced during implementation and how they were resolved.
+        * Insights gained from the experiment.
+
+<br>
 
 # Homework 3 Humanoid Virtual Competition
 
