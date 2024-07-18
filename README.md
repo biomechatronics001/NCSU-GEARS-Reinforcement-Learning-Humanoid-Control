@@ -29,7 +29,7 @@
 | 1 | 2 | Project Overview (humanoid robot) <br> Introduction to Ubuntu, MuJoCo, IsaacGym & Custom URDF files and visualize in MuJoCo (07/12, 10a - 11:30a, Room 3209, Enginnering Building III) | |
 | 2 | 3 | Introduction to Reinforcement learning <br> Cart-pole example  (07/16, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
 | 2 | 4 | Introduction to policy-based learning and humanoid project (07/18, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
-| 2 | 5 | Tune reward function and train humanoid robot controller (07/19, 1p - 2:30p, Room 3209, Enginnering Building III) | See [Homework 3 Humanoid Virtual Competition](#homework-3-humanoid-virtual-competition) |
+| 2 | 5 | Tune reward function and train humanoid robot controller (07/19, 1p - 2:30p, Room 3209, Enginnering Building III) | See [Homework 3 Sensitivity Analysis and Velocity Tracking](#homework-3-sensitivity-analysis-and-velocity-tracking) |
 | 3 | 6 | Q&A<br>Poster feedback (07/23, 2p - 3:30p, Room 3235, Enginnering Building III) | Poster must be completed by July 25 |
 
 # Hardware and Software Requirements
@@ -541,7 +541,40 @@ If you don't have a trained policy and just want to visualize the robot, please 
 
 <br>
 
-# Homework 3 Humanoid Virtual Competition
+# Homework 3 Sensitivity Analysis and Velocity Tracking
+
+## Objectives
+
+1. Perform sensitivity analysis on reward scaling.
+
+2. Reproduce Fig. 5 from the paper, which involves velocity tracking for different policies.
+
+## Tasks
+
+1. Reading and Questions:
+
+    * Read Sections III.D, IV, and V of the paper to understand the implementation details, results, and conclusions.
+    * Answer the following questions:
+        * What hyperparameters were used for training the RL model (see Table. III)?
+        * How does the paper perform sensitivity analysis on reward scaling, and what are the key findings?
+        * How does Fig. 5 helps in evaluating policy performance?
+
+2. Coding:
+
+    * Using the provided code, perform a sensitivity analysis by varying the weights of the height, orientation, and joint regularization rewards (basically reproducing Fig. 6).
+    * Modify the code to record the forward and angular velocities of the humanoid robot during training.
+    * Reproduce Fig. 5 by plotting the velocity tracking for PBRS, DRS, and baseline policies over multiple runs. It is OK that you have different velocity commands among policies.
+
+3. Analysis:
+
+    * Write a short summary describing:
+        * The impact of different reward scalings on policy performance.
+        * The ability of different policies to track desired velocities and any observed differences.
+        * Insights gained from the sensitivity analysis and velocity tracking experiments.
+
+<br>
+
+# Humanoid Virtual Competition
 
 Placeholder
 
