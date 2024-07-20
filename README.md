@@ -574,9 +574,53 @@ If you don't have a trained policy and just want to visualize the robot, please 
 
 <br>
 
-# Humanoid Virtual Competition
+# Design and Customize Your Humanoid Robot (Optional)
 
-Placeholder
+## Objectives
+
+1. Design your own humanoid robot based on provided examples (MIT Humanoid and the humanoid developed in our lab).
+2. Customize the simulation environment using the IsaacGym code (e.g., change the terrain, add obstacles).
+3. Train your customized robot to perform various locomotion tasks using reinforcement learning.
+4. Utilize your creativity to explore and implement unique features or challenges in your humanoid design and environment setup.
+
+## Instructions
+
+1. Review Example Humanoids:
+
+    Study the provided examples of the MIT Humanoid and the humanoid developed in our lab. Pay attention to their structural design, joint configurations, and movement capabilities.
+
+2. Design Your Humanoid:
+
+    Based on the examples, create your own humanoid robot. You can modify the structure, joints, or add unique features to your design. Document your design choices and rationale.
+
+3. Customize the Simulation Environment:
+
+    Using the IsaacGym code, customize the simulation environment to test your humanoid. You can change the terrain (e.g., rough surfaces, slopes) and add obstacles to create challenges for your robot. You may also need to change the observations and actions in the code.
+
+    Document the changes made to the environment and the purpose behind them.
+
+4. Train Your Humanoid:
+
+    Set up reinforcement learning training for your customized humanoid robot. You can choose specific locomotion tasks (e.g., walking, running, climbing) that you want your robot to perform.
+
+    Record the training process, noting any challenges and solutions encountered.
+
+5. Analysis and Report:
+
+    Analyze the performance of your humanoid robot in the customized environment. Measure key metrics such as stability, speed, and energy efficiency.
+
+    Write a short report that includes:
+      * Description of your humanoid design and environment customization.
+      * Training process and results.
+      * Insights gained from the experiment, including successes and areas for improvement.
+
+## Resources
+
+You may refer to the following two example humanoids and customize your own robot based on it.
+* MIT humanoid: [Here](./humanoid_project/MIT_Humanoid/)
+* Our own humanoid: [Here](./humanoid_project/BIRO_Humanoid/)
+
+To visualize the robot, please follow the instructions on MuJoCo in [Lecture 2 slide](./lecture_slides/Lecture%202%20-%20Project%20Overview%20and%20Introduction%20to%20Ubuntu,%20MuJoCo,%20IsaacGym.pdf)
 
 # FAQ
 

@@ -1,0 +1,300 @@
+   <mujoco model='Humanoid'>
+    <compiler inertiafromgeom='auto' angle='degree' eulerseq='zyx' coordinate='local' meshdir='./STLs/'/>
+    <size nuser_actuator='1' nuser_sensor='1' nuser_geom='1'/>
+    <option timestep='0.0005' iterations='50' solver='PGS' gravity='0 0 -9.81'/>
+    <!-- timestep should equal sampling rate of controller-->
+
+    <visual>
+        <quality shadowsize='4096'/>
+        <map znear='0.05'/>
+    </visual>
+
+
+    <default>
+        <joint limited='true'/>
+        <motor ctrllimited="false" forcelimited="false" />
+        <geom contype='0' conaffinity='0' condim='1' solref='0.005 1'/>
+        <equality solref='0.005 1'/>
+
+        <default class='humanoid'>
+            <geom material='aluminum'/>
+        </default>
+
+
+
+        <default class='collision'>
+            <!--User parameter for geoms is used to identify collision types-->
+            <geom material='collision' contype='1' user='2'/>
+            <default class='collision-left'>
+                <geom contype='2' conaffinity='4'/>
+            </default>
+
+            <default class='collision-right'>
+                <geom contype='4' conaffinity='2'/>
+            </default>
+        </default>
+
+        <default class='obstacle'>
+            <geom material='obstacle' condim='3' contype='8' conaffinity='15' user='1'/>
+        </default>
+
+    </default>
+
+
+    <asset>
+
+        <texture type='skybox' builtin='gradient' width='128' height='128' rgb1='0.4 0.6 0.8' rgb2='0 0 0'/>
+        <texture name='plane' type='2d' builtin='checker' rgb1='0.2 0.2 0.2' rgb2='0.3 0.3 0.3' width='512' height='512'/>
+        <material name='plane' reflectance='0.0' texture="plane" texrepeat='1 1' texuniform='true'/>
+        <!--Robot Color-->
+        <material name='humanoid' rgba='0.9 0.5 0.1 1'/>
+        <material name='aluminum' rgba='2.09 2.09 2.09 1' shininess='0.2'/>
+        <material name='black' rgba='0 0 0 1' shininess = '0.6'/>
+        <material name='collision' rgba='0.1 0.5 0.9 0'/>
+        <material name='obstacle' rgba='0.2 0.6 0.2 1'/>
+
+        <!-- the .stl files of all meshes are declared below-->
+        <mesh name='Torso' scale='0.001 -0.001 0.001' file='simplify_torso low quality.stl'/>
+
+        <mesh name='RightHipAbductor' scale='0.001 0.001 0.001' file='hip abduct.stl'/>
+        <mesh name='LeftHipAbductor' scale='0.001 0.001 0.001' file='hip abduct.stl'/>
+
+        <mesh name='RightHipFlexor' scale='0.001 0.001 0.001' file='hip flex 1.stl'/>
+        <mesh name='LeftHipFlexor' scale='-0.001 0.001 0.001' file='hip flex 1.stl'/>
+
+        <mesh name='RightThigh' scale='0.001 0.001 0.001' file='thigh.stl'/>
+        <mesh name='LeftThigh' scale='-0.001 0.001 0.001' file='thigh.stl'/>
+        
+        <mesh name='RightShank' scale='0.001 0.001 0.001' file='shank.stl'/>
+        <mesh name='LeftShank' scale='0.001 0.001 0.001' file='shank.stl'/>
+
+        <mesh name='RightFoot' scale='0.001 0.001 0.001' file='FOOT.stl'/>
+        <mesh name='LeftFoot' scale='0.001 0.001 0.001' file='FOOT.stl'/>
+
+    </asset>
+
+
+    <worldbody>
+        <!--Place floor in worldbody-->
+        <geom name='floor' pos='0 0 -1' size='10 5 0.125' type='plane' material='plane' condim='3' conaffinity='15' priority="1"/>
+
+        <!--Lighting-->
+        <light mode='trackcom' pos='0 0 5' dir='0 0 -1'/>
+        <light directional='true' pos='0 0 3' dir='0 0 -1' diffuse='0.2 0.2 0.2' specular='0 0 0'/>
+
+        <!--Begin Robot Model Tree-->
+        <body name='Torso' pos='0 0.1 0' childclass='humanoid'>
+            <camera name='track' pos='0 -3 1' zaxis='0 -1 0.5' mode='track'/>
+            <inertial pos='1.613583357853965e-15 -0.0005264085837902447 0.01' mass='3.982180428888184' fullinertia='0.003847008286312995 0.03501037530694816 0.03859190489800194 -1.4046152195485599e-16 0.0 1.232595164407831e-32'/>
+
+            <!--Joints to allow free movement of the base-->
+            <freejoint name='root'/>
+        
+            <!--Assign Model-->
+            <geom type='mesh' mesh='Torso'/>
+
+            <!--Create Collision Model-->
+            <geom type='mesh' mesh='Torso' pos='0 0 0' class='collision'/>
+
+                <!--Begin Child Bodies-->
+
+                <!--Right Hip Abductor-->
+                <body name='RightHipAbductor' pos='-0.11 0 -0.29' childclass='humanoid'>
+                    <!--Inertia-->
+                    <inertial pos='3.789498289136217e-05 0.10160165552883182 -0.08509638780752712' mass='0.9976560754135653' fullinertia='0.0018356193792807111 0.0017330160105995494 0.0012580044562469465 1.3995774904799335e-06 0.00048068064184273937 -1.400286593650213e-06'/>
+
+                    <!--Joint-->
+                    <joint name='RH_Rotate' type='hinge' range='-180 180' axis='0 0 1'/>
+
+                    <!--Assign Model-->
+                    <geom type='mesh' mesh='RightHipAbductor'/>
+
+                    <!--Create Collision Model-->
+                    <geom type='mesh' mesh='RightHipAbductor' pos='0 0 0' class='collision'/>
+
+                    <!--Begin Child Bodies-->
+
+                    <!--Right Hip Flexor-->
+                    <body name='RightHipFlexor' pos='0 0.075 -0.0915' childclass='humanoid'>
+                        <!--Inertia-->
+                        <inertial pos='0.036399012141821924 -0.062061496050493214 1.6388564218872137e-05' mass='2.0442329182864794' fullinertia='0.004201822759518407 0.0027750484215263924 0.0032376642182151746 0.00019127058115027125 -3.097470028100291e-06 4.7008322555039395e-07'/>
+
+                        <!--Joint-->
+                        <joint name='RH_Abduct' type='hinge' range='-30 30' axis='0 1 0'/>
+                        
+                        <!--Assign Model-->
+                        <geom type='mesh' mesh='RightHipFlexor'/>
+
+                        <!--Create Collision Model-->
+                        <geom type='mesh' mesh='RightHipFlexor' pos='0 0 0' class='collision'/>
+
+                        <!--Begin Child Bodies-->
+
+                        <!--Right Thigh-->
+                        <body name='RightThigh' pos='0.01 -0.075 0' childclass='humanoid'>
+                            <!--Inertia-->
+                            <inertial pos='-0.04639659351300182 -3.393818057345969e-06 -0.09313945670055018' mass='4.3536877020835725' fullinertia='0.03152313565923798 0.03341117823558237 0.007716852293013027 2.735789366010017e-07 -2.012283252699746e-06 0.0029681680035424374'/>
+
+                            <!--Joint-->
+                            <joint name="RH_Flex" type='hinge' range='-90 40' axis='1 0 0'/>
+
+                            <!--Assign Model-->
+                            <geom type='mesh' mesh='RightThigh'/>
+
+                            <!--Create Collision Model-->
+                            <geom type='mesh' mesh='RightThigh' pos='0 0 0' class='collision'/>
+
+                            <!--Begin Child Bodies-->
+
+                            <!--Right Shank-->
+                            <body name='RightShank' pos='-0.02 0 -0.273' childclass='humanoid'>
+                                <!--Inertia-->
+                                <inertial pos='-0.02936937346330583 -0.0021406088386655645 -0.10348111039885993' mass='0.6491286458131267' fullinertia='0.005112457378428831 0.0051395765508049085 0.0002906897187300453 4.009545314398748e-06 7.010573006817778e-05 0.00014925030575433512'/>
+
+                                <!--Joint-->
+                                <joint name='RightKnee' type='hinge' range='-45 45' axis='1 0 0'/>
+
+                                <!--Assign Model-->
+                                <geom type='mesh' mesh='RightShank' material='black'/>
+
+                                <!--Create Collision Model-->
+                                <geom type='mesh' mesh='RightShank' pos='0 0 0' class='collision'/>
+
+
+                                <!--Begin Child Models-->
+
+                                <!--Right Foot-->
+                                <body name='RightFoot' pos='0 0 -0.25' childclass= 'humanoid'>
+                                    <!--Inertia-->
+                                    <inertial pos='-0.014309008341831603 -0.011157853770707972 -0.023348929042613653' mass='0.21123130775759938' fullinertia='0.000400177682320188 9.074627600444418e-05 0.00034703206179460735 -2.5655494201827435e-07 -3.014992581219767e-05 -6.347144974119812e-07'/>
+
+                                    <!--Joint-->
+                                    <joint name='RightAnkle' type='hinge' range='-50 100' axis='1 0 0'/>
+
+                                    <!--Assign Model-->
+                                    <geom type='mesh' mesh='RightFoot' material='black'/>
+
+                                    <!--Create Collision Model-->
+                                    <geom type='mesh' mesh='RightFoot' pos="0 0 0" class='collision'/>
+
+
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            
+
+                <!--Left Hip Abductor-->
+                <body name='LeftHipAbductor' pos='0.11 0 -0.29' childclass='humanoid'>
+                    <!--Inertia-->
+                    <inertial pos='3.789498289136217e-05 0.10160165552883121 -0.08509638780752729' mass='0.997656075413566' fullinertia='0.0018356193792807424 0.0017330160105995356 0.0012580044562469639 1.3995774904677905e-06 0.00048068064184271335 -1.4002865936450087e-06'/>
+
+                    <!--Joint-->
+                    <joint name='LH_Rotate' type='hinge' range='-180 180' axis='0 0 1'/>
+
+                    <!--Assign Model-->
+                    <geom type='mesh' mesh='LeftHipAbductor'/>
+
+                    <!--Create Collision Model-->
+                    <geom type='mesh' mesh='LeftHipAbductor' pos='0 0 0' class='collision'/>
+
+                    <!--Begin Child Bodies-->
+
+                    <!--Left Hip Flexor-->
+                    <body name='LeftHipFlexor' pos='0 0.075 -0.0915' childclass='humanoid'>
+                        <!--Inertia-->
+                        <inertial pos='-0.03639901214183855 -0.06206149605048322 -1.638856421401491e-05' mass='2.044232918286458' fullinertia='0.004201822759518213 0.0027750484215264618 0.003237664218215223 -0.0001912705811506854 3.097470028108097e-06 4.7008322552957726e-07'/>
+
+                        <!--Joint-->
+                        <joint name='LH_Abduct' type='hinge' range='-30 30' axis='0 1 0'/>
+
+                        <!--Assign Model-->
+                        <geom type='mesh' mesh='LeftHipFlexor'/>
+
+                        <!--Create Collision Model-->
+                        <geom type='mesh' mesh='LeftHipFlexor' pos='0 0 0' class='collision'/>
+
+                        <!--Begin Child Bodies-->
+
+                        <!--Left Thigh-->
+                        <body name='LeftThigh' pos='-0.01 -0.075 0' childclass='humanoid'>
+                            <!--Inertia-->
+                            <inertial pos='0.046396599645368825 -3.3929504073384195e-06 -0.0931394231956256' mass='4.353686864474232' fullinertia='0.031523108522088505 0.03341115074607964 0.007716851155557883 -2.733783261602033e-07 -2.0124605951888503e-06 -0.002968159542433929'/>
+
+                            <!--Joint-->
+                            <joint name="LH_Flex" type='hinge' range='-90 40' axis='1 0 0'/>
+
+                            <!--Assign Model-->
+                            <geom type='mesh' mesh='LeftThigh'/>
+
+                            <!--Create Collision Model-->
+                            <geom type='mesh' mesh='LeftThigh' pos='0 0 0' class='collision'/>
+
+                            <!--Begin Child Bodies-->
+
+                            <!--Left Shank-->
+                            <body name='LeftShank' pos='0.02 0 -0.273' childclass='humanoid'>
+                                <!--Inertia-->
+                                <inertial pos='0.029369371975366584 -0.0021406114792466347 -0.10348110604337596' mass='0.6491285472014532' fullinertia='0.005112457186542296 0.005139576407144603 0.00029068963571655775 -4.009503236083821e-06 7.010567826895185e-05 -0.00014925033700367157'/>
+
+                                <!--Joint-->
+                                <joint name='LeftKnee' type='hinge' range='-45 45' axis='1 0 0'/>
+
+                                <!--Assign Model-->
+                                <geom type='mesh' mesh='LeftShank' material='black'/>
+
+                                <!--Create Collision Model-->
+                                <geom type='mesh' mesh='LeftShank' pos='0 0 0' class='collision'/>
+
+                                <!--Begin Child Models-->
+
+                                <!--Left Foot-->
+                                <body name='LeftFoot' pos='0 0 -0.25' childclass= 'humanoid'>
+                                    <!--Inertia-->
+                                    <inertial pos='0.014691253562958445 -0.011157853647401919 -0.023348907463936586' mass='0.21123130775759935' fullinertia='0.0004001776823200631 9.07462760212363e-05 0.00034703206181144674 -2.565544501629386e-07 -3.014992581219767e-05 -6.347134684728944e-07'/>
+
+                                    <!--Joint-->
+                                    <joint name='LeftAnkle' type='hinge' range='-90 90' axis='1 0 0'/>
+                                    
+                                    <!--Assign Model-->
+                                    <geom type='mesh' mesh='LeftFoot' material='black'/>
+
+                                    <!--Create Collision Model-->
+                                    <geom type='mesh' mesh='LeftFoot' pos='0 0 0' class='collision'/>
+
+
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+        </body>
+    </worldbody>
+
+
+    <!--Actuators-->
+    <actuator>
+        <!--Leg Rotation-->
+        <motor name='R_Rotate' joint='RH_Rotate'/>
+        <motor name='L_Rotate' joint='LH_Rotate'/>
+
+        <!--Leg Abduction-->
+        <motor name='R_Abduct' joint='RH_Abduct'/>
+        <motor name='L_Abduct' joint='LH_Abduct'/>
+
+        <!--Leg Flexion-->
+        <motor name='R_Flex' joint='RH_Flex'/>
+        <motor name='L_Flex' joint='LH_Flex'/>
+
+        <!--Knees-->
+        <motor name='R_Knee' joint='RightKnee'/>
+        <motor name='L_Knee' joint='LeftKnee'/>
+
+        <!--Ankles-->
+        <motor name='R_Ankle' joint='RightAnkle'/>
+        <motor name='L_Ankle' joint='LeftAnkle'/>
+    </actuator>
+    
+
+</mujoco>
