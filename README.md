@@ -630,7 +630,7 @@ To visualize the robot, please follow the instructions on MuJoCo in [Lecture 2 s
 
    * Create a Ubuntu Live USB (basically burn the Ubuntu image into this disk to make it a bootable disk)
 
-   * Restart the computer with this USB plugged into your computer. Press and hold `F12` key (other other key depending on your computer) to go into BIOS setup. Choose to boot from this Live USB.
+   * Restart the computer with this USB plugged into your computer. Press and hold `F12` key (or other key depending on your computer) to go into BIOS setup. Choose to boot from this Live USB.
 
    * A GRUB window should pop up. Select "Try Ubuntu" and press Enter. This will take you to a live Ubuntu session.
 
@@ -644,3 +644,19 @@ To visualize the robot, please follow the instructions on MuJoCo in [Lecture 2 s
       ```
 
    * Restart your computer and boot into your normal Ubuntu. It may take a while but hopefully everything should be working now!
+
+2. How to log the velocity tracking result to reproduce Fig. 5?
+
+    You need to change the `play.py` file. Specifically, you need to modify the `play_log` variable to include command and actual velocity.
+
+3. How is sensitivity analysis in Fig. 6 performed?
+
+    Let's use the first subplot (orientation reward of DRS method) as an example.
+
+    * Include the baseline rewards (with default scales) + three DRS rewards (with the scale of orientation rewards sweeping from 0.1x to 10x and the scale of the remaining two terms kept at 1x). 
+    * Then repeat this process for each of the two other DRS rewards. 
+    * Finally, do the same for PBRS rewards. 
+
+    The purpose of this sensitivity analysis is to see to what degree the baseline rewards are affected by the change in the scale of a specific reward term from the DRS or PBRS reward formulation. 
+
+    There is an input argument corresponding to this, but it does not seem to work well. So most probably you would need to do it manually.
