@@ -30,7 +30,7 @@
 | 2 | 3 | Introduction to Reinforcement learning <br> Cart-pole example  (07/16, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 1 Compute Network Parameters and Compare Controller Performance](#homework-1-compute-network-parameters-and-compare-controller-performance) |
 | 2 | 4 | Introduction to policy-based learning and humanoid project (07/18, 10a - 11:30a, Room 3209, Enginnering Building III) | See [Homework 2 Reward Function Formulation](#homework-2-reward-function-formulation)
 | 2 | 5 | More on Humanoid Project, TD Learning, Policy Gradient (07/19, 1p - 2:30p, Room 3209, Enginnering Building III) | See [Homework 3 Sensitivity Analysis and Velocity Tracking](#homework-3-sensitivity-analysis-and-velocity-tracking) |
-| 3 | 6 | Q&A<br>Poster feedback (07/23, 2p - 3:30p, Room 3235, Enginnering Building III) | Poster must be completed by July 25 |
+| 3 | 6 | Actor-critic Method, Proximal Policy Optimization<br>Poster feedback (07/23, 2p - 3:30p, Room 3235, Enginnering Building III) | Poster must be completed by July 25 |
 
 # Hardware and Software Requirements
 
