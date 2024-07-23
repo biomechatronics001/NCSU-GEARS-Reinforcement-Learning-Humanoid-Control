@@ -622,6 +622,31 @@ You may refer to the following two example humanoids and customize your own robo
 
 To visualize the robot, please follow the instructions on MuJoCo in [Lecture 2 slide](./lecture_slides/Lecture%202%20-%20Project%20Overview%20and%20Introduction%20to%20Ubuntu,%20MuJoCo,%20IsaacGym.pdf)
 
+# How are Lecture Slides Related to Humanoid Project?
+
+Lecture 4-6 provides you with an introductory knowledge of how PPO (proximal policy optimization) is derived starting from the very basic concepts of the reinforcement learning. PPO is the core algorithm used behind the provided MIT humanoid code.
+
+Here is a brief summary:
+
+* Value-based learning: learns an approximation of the optimal action-value function $Q^*_\pi(s,a)$, which judges the goodness of performing a certain action $a_t$ at the state $s_t$. The value network is updated using temporal-difference (TD) error. [[Lecture 4]](./lecture_slides/Lecture%204%20-%20Junxi%20-%20Introduction%20to%20Policy-Based%20Learning%20and%20Humanoid%20Project.pdf)
+* Policy-based learning: learns to maximize $J(\theta)=\mathbb{E}_S[V_\pi (S)]$, where $V_\pi(S)$ is the state-value function defined from the expectation of $Q_\pi$ over all possible actions: $V_\pi(s_t) = \mathbb{E}_A[Q_\pi(s_t,A)]$. The policy network is updated using policy gradient. [[Lecture 4]](./lecture_slides/Lecture%204%20-%20Junxi%20-%20Introduction%20to%20Policy-Based%20Learning%20and%20Humanoid%20Project.pdf)
+* Value-based learning and policy-based learning each has their own advantages and limitations. [[Lecture 5]](./lecture_slides/Lecture%205%20-%20Junxi%20-%20More%20on%20Humanoid%20Project,%20TD%20Learning,%20Policy%20Gradient.pdf)
+* Actor-critic method combines both value-based learning and policy-based learning. However, the naive actor-critic method suffers from high variance and slow convergence coming from the $Q_\pi(S,A)$ term in the policy gradient. So we subtract a baseline value (chosen as the state-value function $V_\pi(S)$) to reduce the variance. This difference is called the *advantage* $A = Q_\pi (S,A) - V_\pi(S)$. [[Lecture 6]](./lecture_slides/Lecture%206%20-%20Junxi%20-%20Actor%20Critic%20Method,%20Proximal%20Policy%20Optimization.pdf)
+* We can sum up discounted advantage values to form *generalized advantage* (GAE), similar to summing up discounted rewards to get total return. This process further reduces the variance. [[Lecture 6]](./lecture_slides/Lecture%206%20-%20Junxi%20-%20Actor%20Critic%20Method,%20Proximal%20Policy%20Optimization.pdf)
+* All the above steps only use sampled data once for training and discard it, which is very data-inefficient. Assume now we 
+ have two policies: *behavior policy* and *target policy*. The behavior policy gains a lot of experiences by interacting with the environment to get state-action-reward pairs. The target policy actually controls the agent. If these two policies are the same policy, it is called *on-policy learning*. If they are different, it is called *off-policy learning*. Off-policy learning improves data efficiency because the same experience can be used over and over again to update the network (called experience replay). However, if we use the off-policy learning, we need to include an additional term in the policy gradient to account for it, which is called *importance sampling*. [[Lecture 6]](./lecture_slides/Lecture%206%20-%20Junxi%20-%20Actor%20Critic%20Method,%20Proximal%20Policy%20Optimization.pdf)
+ * With actor-critic + baseline subtraction + importance sampling (off-policy learning), the training is still sometimes unstable. Therefore, we want to limit the difference between the current policy and the updated policy. To achieve this, we can use *trust region policy optimization* (TRPO) which uses an additional constraint to penalizes the difference between the two polices. *Proximal policy optimization* (PPO) is a linear approximation of TRPO by using a clipping function to limit the change of the two policies with a surprisingly good performance. [[Lecture 6]](./lecture_slides/Lecture%206%20-%20Junxi%20-%20Actor%20Critic%20Method,%20Proximal%20Policy%20Optimization.pdf)
+ * The PPO algorithm in the MIT humanoid code is highly modularized and thus is a bit difficult to understand. So please check out this single-file implementation in `./resources/ppo.py`, which is much easier to read. You can put the slide and this single-file implementation side by side for better understanding.
+ * For the MIT humanoid code itself, the PBRS formulation is very similar to that of the *TD error* or the *advantage term* in the policy gradient estimation. PRBS term includes information not only from the current state, but also from the next state, and thus is better at guiding the policy update compared to DRS term which only contains information from the current state.
+
+# Poster
+
+You should pretend that you are the author of this MIT paper who is trying to write this paper. For the theoretical part, you could take the content from the paper or the slide. For the results, please try to use the one that you reproduced.
+
+Poster template (from the university): https://gti.ncsu.edu/2022/10/31/gears-virtual-poster-presentation-winners-summer-2022/
+
+Poster template (from our lab): [Here](./resources/Learning-in-simulation-poster-template.pdf)
+
 # FAQ
 
 1. My Ubuntu fails to boot after restarting the computer. The error message says "Unexpected return from initial read: Volume Corrupt", "Failed to load image: Volume Corrupt", "start_image() returned Volume Corrupt".
@@ -647,7 +672,11 @@ To visualize the robot, please follow the instructions on MuJoCo in [Lecture 2 s
 
 2. How to log the velocity tracking result to reproduce Fig. 5?
 
-    You need to change the `play.py` file. Specifically, you need to modify the `play_log` variable to include command and actual velocity.
+    You need to change the `play.py` file. Specifically, you need to modify the `play_log` variable to include command and actual velocity. The result will be output to a csv file in `/analysis/data/play_log.csv`. Make sure that the path in the `np.savetxt()` below is correct!
+
+    ![Velocity Tracking Plot Hint](./resources/Homework3_Velocity_Tracking_Hint.png)
+
+    You may also refer to this [sample solution file](./resources/analysis.ipynb).
 
 3. How is sensitivity analysis in Fig. 6 performed?
 
