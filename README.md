@@ -360,7 +360,7 @@ As you can see, even with the same agent, different performance can be obtaining
   If you encounter an error saying that "RuntimeError: nvrtc: error: invalid value for --gpu-architecture (-arch)" in the [Run a blank policy](#run-a-blank-policy) section below, please use the following command:
 
   ```bash
-  pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117/
+  pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117/
   ```
 
 * Install Isaac Gym
